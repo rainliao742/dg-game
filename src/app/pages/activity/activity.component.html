@@ -1,0 +1,116 @@
+<div id="root" class="signup">
+  <app-header></app-header>
+  <main>
+    <article class="signup-wrapper">
+      <div class="container">
+        <ng-container>
+          <h2>{{activityName}}</h2>
+          <p>{{masterExt?.timeDescription}}</p>
+          <p>{{masterExt?.venue}}</p>
+          <div class="row" >
+            <button (click)="openQuestion();" class="btn btn--enable" type="button" *ngIf="today<start">
+              <span>我可以共襄盛舉</span>
+            </button>
+          </div>
+
+          <div class="row" *ngIf="start<=today && today<=end">
+            <button (click)="openCheckin();" class="btn btn--enable" type="button">
+              <span>報到</span>
+            </button>
+          </div>
+        </ng-container>
+      </div>
+    </article>
+  </main>
+  <app-footer></app-footer>
+</div>
+
+
+<ng-template #question>
+  <div class="modal top20">
+    <div class="modal-content">
+      <a (click)="closeQuestion();" class="modal-close" title="Close Modal">X</a>
+      <h3>{{activityName}}</h3>
+      <div class="modal-area">
+        <form class="top20" (ngSubmit)="saveActivity();" name="form" #form="ngForm" autocomplete="off">
+          <div class="row">
+            <!-- 主要問題KEY (用來報到用)-->
+            <label for="keyQuestionValue" class="field-label">
+              <h2 class="content-h6"><span class="form-required">*</span>{{keyQuestion}}</h2>
+              <input type="text" id="keyQuestionValue" class="field-type content-h5" name="keyQuestionValue"
+                [pattern]="masterExt.pattern" #keyQuestionValue="ngModel" [(ngModel)]="masterExt.keyQuestionValue"
+                required>
+
+              <span class="field-wrongMessage" *ngIf=" form.submitted && keyQuestionValue.errors?.required">
+                <ng-container>* 請填寫必填欄位!</ng-container>
+              </span><br>
+              <span class="other-err" *ngIf=" form.submitted && (keyQuestionValue.errors?.pattern!=null)">
+                <ng-container>* 欄位內容格式有誤，請確認! </ng-container>
+              </span>
+            </label>
+          </div>
+          <!-- 其他問題 -->
+          <ng-container *ngFor="let detail of detailExts; let i=index">
+            <div class="row">
+              <label for="{{detail.questionName}}" class="field-label">
+                <h2 class="content-h6"><span class="form-required"
+                    *ngIf="detail.isRequired=='Y'">*</span>{{detail.questionChName}}</h2>
+                <input type="text" [id]="detail.questionName" class="field-type content-h5" [name]="detail.questionName"
+                  #questionNameValue="ngModel" [(ngModel)]="detail.questionNameValue" [pattern]="detail.pattern"
+                  [required]="detail.isRequired=='Y'">
+                <span class="field-wrongMessage"
+                  *ngIf=" form.submitted && detail.isRequired=='Y' && questionNameValue.errors?.required ">
+                  <ng-container>* 請填寫必填欄位!</ng-container>
+                </span>
+                <span class="field-wrongMessage"
+                *ngIf=" form.submitted && questionNameValue.errors">
+                  <ng-container>* 欄位內容格式有誤，請確認! </ng-container>
+                </span>
+              </label>
+            </div>
+          </ng-container>
+          <div class="buttonContainer">
+          </div>
+          <br>
+          <!-- 送出表單 -->
+          <button type="submit" class="btn btn--enable">送出表單</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #checkin>
+  <div class="modal top20">
+    <div class="modal-content">
+      <a (click)="closeCheckin();" class="modal-close" title="Close Modal">X</a>
+      <h3>{{activityName}}</h3>
+      <div class="modal-area">
+        <form class="top20" (ngSubmit)="saveCheckin();" name="form2" #form2="ngForm" autocomplete="off">
+          <div class="row">
+            <!-- 主KEY (用來報到用)-->
+            <label for="checkInKeyQuestionValue" class="field-label">
+              <h2 class="content-h6"><span class="form-required">*</span>{{keyQuestion}}</h2>
+              <input type="text" id="checkInKeyQuestionValue" class="field-type content-h5"
+                name="checkInKeyQuestionValue" [pattern]="checkInMaster.pattern" #checkInKeyQuestionValue="ngModel"
+                [(ngModel)]="checkInMaster.keyQuestionValue" required>
+
+              <span class="field-wrongMessage" *ngIf=" form2.submitted && checkInKeyQuestionValue.errors?.required">
+                <ng-container>* 請填寫必填欄位!</ng-container>
+              </span><br>
+              <span class="other-err" *ngIf=" form2.submitted && (checkInKeyQuestionValue.errors?.pattern!=null)">
+                <ng-container>* 欄位內容格式有誤，請確認! </ng-container>
+              </span>
+            </label>
+          </div>
+          <div class="buttonContainer">
+          </div>
+          <br>
+          <!-- 送出表單 -->
+          <button type="submit" class="btn btn--enable">點我完成報到</button>
+        </form>
+
+      </div>
+    </div>
+  </div>
+</ng-template>

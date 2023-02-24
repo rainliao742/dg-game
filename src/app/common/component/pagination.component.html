@@ -1,0 +1,35 @@
+<div class="layout-pagination center" *ngIf="totalRecordCnt > 0">
+
+  <!-- 第一頁 -->
+  <button type="button" pButton pRipple icon="pi pi-angle-double-left"
+    class="pagination p-button-icon-only p-button-text p-button-secondary" [disabled]="curPageNum === 1"
+    (click)="goto('first')"></button>
+
+  <!-- 上一頁 -->
+  <button type="button" pButton pRipple icon="pi pi-angle-left"
+    class="pagination p-button-icon-only p-button-text p-button-secondary" [disabled]="curPageNum === 1"
+    (click)="goto('previous')"></button>
+
+  <!-- 第 n 頁 -->
+  <button type="button" pButton pRipple class="pagination p-button-text p-button-secondary"
+    *ngFor="let pageNum of pageNumList;" (click)="gotoPage(pageNum)" [label]="pageNum.toString()"
+    [ngClass]="{ 'highlight': curPageNum === pageNum }"></button>
+
+  <!-- 下一頁 -->
+  <button type="button" pButton pRipple icon="pi pi-angle-right"
+    class="pagination p-button-icon-only p-button-text p-button-secondary" [disabled]="curPageNum === totalPageNum"
+    (click)="goto('next')"></button>
+
+  <!-- 最後一頁 -->
+  <button type="button" pButton pRipple icon="pi pi-angle-double-right"
+    class="pagination p-button-icon-only p-button-text p-button-secondary" [disabled]="curPageNum === totalPageNum"
+    (click)="goto('last')"></button>
+
+  <!-- 每頁筆數 -->
+  <div class="field">
+    <select [(ngModel)]="pageSize" (change)="changePageSize();">
+      <option *ngFor="let size of pageSizeList;" [value]="size">{{ size }}</option>
+    </select>
+  </div>
+
+</div>

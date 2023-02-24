@@ -1,0 +1,127 @@
+<div id="root" class="signup">
+  <app-header></app-header>
+  <main class="signup-wrapper">
+    <article class="signup-wrapper">
+      <div class="container">
+
+        <form class="form-body" #form="ngForm" (ngSubmit)="query();" autocomplete="off">
+
+          <div class="row">
+            <!-- 活動名稱-->
+            <label for="activityName" class="field col-4 col-rwd">
+              <h2 class="content-h6">活動名稱</h2>
+              <input type="text" id="activityName" class="field-type content-h5" name="activityName"
+                #activityName="ngModel" [(ngModel)]="masterVo.activityName">
+            </label>
+            <!-- 活動類型-->
+            <label for="activityType" class="field col-4 col-rwd">
+              <h2 class="content-h6">活動類型</h2>
+              <input type="text" id="activityType" class="field-type content-h5" name="activityType"
+                #activityType="ngModel" [(ngModel)]="masterVo.activityType">
+            </label>
+            <!-- 主要問題-->
+            <label for="keyQuestion" class="field col-4 col-rwd">
+              <h2 class="content-h6">報到問題</h2>
+              <input type="text" id="keyQuestion" class="field-type content-h5" name="keyQuestion"
+                #keyQuestion="ngModel" [(ngModel)]="masterVo.keyQuestion">
+            </label>
+          </div>
+          <div class="row">
+            <div class="field col-3 col-rwd appDateTime-row">
+              <label for="activityStartTime" class="required">活動起始時間</label>
+              <input class="appDatetimePicker" type="text" id="activityStartTime" name="activityStartTime" appDatetimePicker
+                [(ngModel)]="vo.startTime" #activityStartTime="ngModel" mode="datetime_second" />
+            </div>
+
+            <div class="field col-3 col-rwd appDateTime-row">
+              <label for="activityEndTime" class="required">活動結束時間</label>
+              <input class="appDatetimePicker" type="text" id="activityEndTime" name="activityEndTime" appDatetimePicker [(ngModel)]="vo.endTime"
+                #activityEndTime="ngModel" mode="datetime_second" />
+            </div>
+
+          </div>
+          <!-- BUTTON ROW -->
+          <div class="field right btn-row">
+            <button type="submit" pButton pRipple label="查詢" icon="pi pi-search" class="k-btn">
+            </button>
+            <button type="button" pButton pRipple label="新增" icon="pi pi-plus" class="k-btn" (click)="add();">
+            </button>
+            <button type="button" pButton pRipple label="清除" icon="pi pi-times" class="k-btn"
+              (click)="clear();"></button>
+          </div>
+
+        </form>
+
+        <div *ngIf="form.submitted">共 {{totalRecordCnt}} 筆</div>
+
+        <p-table [columns]="columnList" [value]="queryList" [lazy]="true" (onSort)="sort($event)" [customSort]="true"
+          [loading]="isQuerying" [rowHover]="true" styleClass="p-datatable-sm p-datatable-striped"
+          [resizableColumns]="true" #table>
+
+          <ng-template pTemplate="header" let-columns>
+            <tr>
+             <th class="action-1 center">
+                <span>序號</span>
+              </th>
+              <th class="center">
+                <span>其他動作</span>
+              </th>
+              <ng-container *ngFor="let column of columns">
+                <th *ngIf="column.sort" [pSortableColumn]="column.sort" [class]="column.class" [ngStyle]="column.style">
+                  <span>{{ column.name }}</span>
+                  <p-sortIcon [field]="column.sort"></p-sortIcon>
+                </th>
+                <th *ngIf="!column.sort" [class]="column.class" [ngStyle]="column.style">
+                  <span>{{ column.name }}</span>
+                </th>
+              </ng-container>
+             
+            </tr>
+          </ng-template>
+
+          <ng-template pTemplate="body" let-x let-columns="columns">
+            <tr class="center">
+             <!-- <td class="center">
+                <input type="checkbox" [(ngModel)]="x.checked" />
+              </td>-->
+              <td>
+                <span>{{x.rowNum}}</span>
+              </td>
+              <td>
+                <button type="button" pButton pRipple icon="pi pi-link"
+                  class="p-button-rounded  p-button-text k-btn" label="活動頁面"
+                  (click)="gotoActivity(x);"></button>
+              <br>
+                <button type="button" pButton pRipple  icon="pi pi-eye"
+                  class="p-button-rounded  p-button-text k-btn" label="報到查看"
+                  (click)="gotoMember(x);"></button>
+              <br>
+                <button type="button" pButton pRipple icon="pi pi-pencil" 
+                  class="p-button-rounded  p-button-text k-btn" label="編輯活動"
+                  (click)="edit(x);"></button>
+              </td>
+              <td *ngFor="let column of columns">
+                <span class="p-column-title">{{ column.name }}</span>
+                <span *ngIf="!column.format">{{ x[column.dataKey] }}</span>
+                <span *ngIf="column.format === 'date'">{{ x[column.dataKey] | date: column.formatString }}</span>
+              </td>
+              
+            </tr>
+          </ng-template>
+
+          <ng-template pTemplate="emptymessage" let-columns>
+            <tr *ngIf="form.submitted && form.valid">
+              <td class="center" [attr.colspan]="columns.length + 1">查無資料</td>
+            </tr>
+          </ng-template>
+        </p-table>
+
+        <app-pagination [totalRecordCnt]="totalRecordCnt" [pageSize]="pageSize" [curPageNum]="curPageNum"
+          (changePage)="changePage($event);">
+        </app-pagination>
+
+
+      </div>
+    </article>
+  </main>
+</div>

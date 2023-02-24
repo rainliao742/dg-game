@@ -1,0 +1,14 @@
+<p-toast></p-toast>
+
+<p-blockUI [blocked]="common.blocked">
+    <i class="pi pi-spin pi-spinner" style="font-size: 3rem"></i>
+</p-blockUI>
+
+<p-confirmDialog  header="注意" icon="pi pi-info-circle" acceptLabel="確認" rejectLabel="取消"></p-confirmDialog>
+
+<p-dialog header="注意" styleClass="rwd-dialog" [(visible)]="common.visible" [draggable]="false" [resizable]="false"
+    [modal]="true" [dismissableMask]="true">
+    <div [innerHTML]="common.innerHTML"></div>
+</p-dialog>
+
+<router-outlet></router-outlet>

@@ -1,0 +1,149 @@
+.modal {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    left: 0px;
+    bottom: 0px;
+}
+
+.modal-content {
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 8px 8px rgba(0, 0, 0, 0.7);
+    overflow: hidden;
+}
+
+.modal-close {
+    float: right;
+    text-decoration: none;
+    padding: 18px 18px;
+    color: #fff;
+    font-weight: 800;
+    cursor: pointer;
+    transition: all .5s ease-in-out;
+    z-index: +1;
+    text-align: center;
+    border-radius: 0 4px 0 0;
+}
+
+.modal-area {
+    padding: 0 4rem 2rem 4rem;
+}
+
+.modal-content h3 {
+    font-size: 18px;
+    padding: 20px;
+    display: block;
+    text-align: center;
+    background: #470073 !important;
+    border-bottom: 1px solid #e0e0e0;
+    text-transform: uppercase;
+    color: #fff;
+    border-radius: 4px 4px 0 0;
+}
+
+.modal-content .row {
+    margin-top: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.modal-content .row label {
+    width: 100%;
+}
+
+.modal-content .row label .field-type {
+    padding: 1rem 1.5rem;
+    border: 1px solid #7c27b0;
+}
+
+.modal-content .modal-close {
+    font-size: 24px;
+}
+
+
+.modal-content form .btn--enable {
+    background-color: #7C27B0;
+    transition: all 0.2s;
+    font-size: 18px;
+    margin: 0 auto;
+}
+
+.modal-content form .btn--enable:hover {
+    background-color: #470073;
+}
+
+
+
+.other-err {
+    color: #9e2a2b;
+    font-weight: 300;
+    font-size: 1rem;
+    line-height: 1.66667rem;
+}
+
+/* rich */
+
+.signup .signup-wrapper {
+    padding: 4rem 0;
+    line-height: 1.6em;
+    max-width: 81.33333rem;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+
+}
+
+.signup-wrapper h2 {
+    font-size: 32px;
+    line-height: 1.2em;
+    font-weight: bold;
+}
+
+.signup-wrapper p {
+    font-size: 16px;
+    line-height: 1.6em;
+}
+
+article {
+    background: rgb(254, 254, 255);
+    background: radial-gradient(circle, rgba(254, 254, 255, 1) 0%, rgb(217, 217, 217) 100%);
+}
+
+.signup-wrapper .row {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    -webkit-column-gap: 1.66667rem;
+    -moz-column-gap: 1.66667rem;
+    column-gap: 1.66667rem;
+    row-gap: 3.33333rem;
+    margin-top: 2rem;
+}
+
+/* button style */
+.signup-wrapper .btn {
+    cursor: pointer;
+    border-radius: 8px;
+    max-width: 50%;
+    width: 100%;
+    margin: 0 auto;
+    min-width: 240px;
+}
+
+.signup-wrapper .btn--enable {
+    background-color: #7C27B0;
+    transition: all 0.2s;
+}
+
+.signup-wrapper .btn--enable:hover {
+    background-color: #470073;
+}
+
+.signup-wrapper .btn span {
+    display: block;
+    font-size: 20px;
+}

@@ -1,0 +1,51 @@
+<div id="root" class="signup">
+  <app-header></app-header>
+  <main class="signup-wrapper">
+    <article>
+      <div>
+        <section>
+          <form (ngSubmit)="login();" name="form" #form="ngForm" autocomplete="off">
+            <div class="row" style="margin-top:0;">
+              <!-- 帳號 -->
+              <label for="userId" class="field-label">
+                <h2 class="content-h6"><span class="form-required">*</span>帳號</h2>
+                <input type="text" id="userId" class="field-type content-h5" name="userId" #userId="ngModel"
+                  [ngClass]="{'error': form.submitted && userId.errors}" [(ngModel)]="vo.userId" maxlength="32"
+                  required>
+                <span class="field-wrongMessage" *ngIf="form.submitted && userId.errors">
+                  <ng-container *ngIf="!vo.userId">* 請填寫帳號!</ng-container>
+                  <ng-container *ngIf="vo.userId!='admin'">* 請填寫指定帳號!</ng-container>
+                </span>
+              </label>
+            </div>
+            <div class="row">
+              <!-- 密碼 -->
+              <label for="password" class="field-label">
+                <h2 class="content-h6"><span class="form-required">*</span>密碼</h2>
+                <input type="text" id="password" class="field-type content-h5" name="password" [(ngModel)]="vo.password"
+                  #password="ngModel" [ngClass]="{'error': form.submitted && password.errors}" maxlength="40" required>
+                <span class="field-wrongMessage" *ngIf="form.submitted && password.errors">
+                  <ng-container *ngIf="!vo.password">* 請填寫密碼!</ng-container>
+                  <ng-container *ngIf="vo.userId!='admin'">* 請填寫正確密碼!</ng-container>
+                </span>
+              </label>
+            </div>
+            <div class="row" style="display: block;">
+              <div class="buttonContainer">
+                <!-- 送出表單 -->
+                <button type="submit" class="btn btn--enable">
+                  <span>登入</span>
+                </button>
+              </div>
+              <span class="erroMsg" *ngIf="form.submitted && !loginType">
+                {{errorMsg}}
+              </span>
+            </div>
+          </form>
+
+        </section>
+      </div>
+    </article>
+  </main>
+  <app-footer></app-footer>
+</div>

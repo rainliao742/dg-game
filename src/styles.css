@@ -1,0 +1,59 @@
+/* You can add global styles to this file, and also import other style files */
+.form-required {
+    color: red;
+}
+
+.header {
+    position: relative !important;
+}
+
+.footer {
+    background-color: #fafafa;
+}
+
+.footer-wrapper {
+    max-width: 81.33333rem;
+}
+
+main {
+    padding-top: 0px !important;
+}
+
+article {
+    background-color: #fafafa;
+}
+
+.top20 {
+    margin-top: 20px;
+}
+
+.row1 {
+    grid-template-columns: repeat(1,1fr) !important
+}
+.row3 {
+    grid-template-columns: repeat(3,1fr) !important;
+}
+.row4 {
+    grid-template-columns: repeat(4,1fr) !important;
+}
+
+.step-row {
+    border: 1px black solid;
+    border-radius: 0.33333rem;
+}
+
+.btn--delete {
+    background-color: #cb3437;
+    width: 100%;
+}
+
+.table {
+    border: 0.08333rem solid #141414;
+    border-radius: 0.33333rem;
+    font-size: 1.33333rem;
+}
+
+.table > thead > tr > th, .table > tbody > tr > td {
+    border: 0.08333rem solid #141414;
+    padding: 1.33333rem 1.66667rem;
+}

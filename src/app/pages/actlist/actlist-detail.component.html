@@ -1,0 +1,200 @@
+<div id="root" class="signup">
+  <app-header></app-header>
+  <main class="signup-wrapper">
+    <article class="signup-wrapper">
+      <div class="container">
+        <h3>活動維護
+          <ng-container *ngIf="isAdd">(新增)</ng-container>
+          <ng-container *ngIf="!isAdd">(編輯)</ng-container>
+        </h3>
+        <form #form="ngForm" class="signup-form">
+
+          <div class="field col-4 col-rwd">
+            <label for="activityName" class="required"><span class="form-required">*</span>活動名稱</label>
+            <input type="text" id="activityName" name="activityName" [(ngModel)]="vo.activityName"
+              #activityName="ngModel" [ngClass]="{'error': form.submitted && activityName.errors}" required
+              maxlength="50" />
+            <div *ngIf="form.submitted && activityName.errors">
+              <small class="errorText" *ngIf="activityName.errors?.required">活動名稱必填</small>
+              <small class="errorText" *ngIf="activityName.errors">活動名稱格式有誤</small>
+            </div>
+          </div>
+
+          <div class="field col-4 col-rwd">
+            <label for="activityType" class="required">活動類型</label>
+            <input type="text" id="activityType" name="activityType" [(ngModel)]="vo.activityType"
+              #activityType="ngModel" [ngClass]="{'error': form.submitted && activityType.errors}" />
+            <div *ngIf="form.submitted && activityType.errors">
+              <small class="errorText" *ngIf="activityType.errors">活動類型格式有誤</small>
+            </div>
+          </div>
+
+          <div class="field col-4 col-rwd">
+            <label for="keyQuestion" class="required"><span class="form-required">*</span>報到問題</label>
+            <input type="text" id="keyQuestion" name="keyQuestion" [(ngModel)]="vo.keyQuestion" #keyQuestion="ngModel"
+              [ngClass]="{'error': form.submitted && keyQuestion.errors}" required maxlength="10"  [disabled]="isAlreadyReply"/>
+            <div *ngIf="form.submitted && keyQuestion.errors">
+              <small class="errorText" *ngIf="keyQuestion.errors?.required">報到問題必填</small>
+              <small class="errorText" *ngIf="keyQuestion.errors">報到問題格式有誤</small>
+            </div>
+          </div>
+
+          <div class="field col-4 col-rwd">
+            <label for="pattern" class="required">報到問題格式</label>
+            <input type="text" id="pattern" name="pattern" [(ngModel)]="vo.pattern" #pattern="ngModel"
+              [ngClass]="{'error': form.submitted && pattern.errors}" maxlength="100"/>
+              <a href="https://regex101.com/">正規表達式測試工具</a>
+            <div *ngIf="form.submitted && pattern.errors">
+              <small class="errorText" *ngIf="pattern.errors">報到問題格式有誤</small>
+            </div>
+          </div>
+
+
+          <div class="field col-3 col-rwd">
+            <label for="activityStartTime" class="required"><span class="form-required">*</span>活動起始時間</label>
+            <input type="text" id="activityStartTime" name="activityStartTime" appDatetimePicker [(ngModel)]="startTime"
+              #activityStartTime="ngModel" mode="datetime_second" required
+              [ngClass]="{'error': form.submitted && activityStartTime.errors}" />
+            <div *ngIf="form.submitted && activityStartTime.errors">
+              <small class="errorText" *ngIf="activityStartTime.errors?.required">活動起始時間必填</small>
+              <small class="errorText" *ngIf="activityStartTime.errors?.date">活動起始時間格式有誤(yyyy/MM/dd HH:mm:ss)</small>
+            </div>
+          </div>
+
+
+
+          <div class="field col-3 col-rwd">
+            <label for="activityEndTime" class="required"><span class="form-required">*</span>活動結束時間</label>
+            <input type="text" id="activityEndTime" name="activityEndTime" appDatetimePicker [(ngModel)]="endTime"
+              #activityEndTime="ngModel" mode="datetime_second" required
+              [ngClass]="{'error': form.submitted && activityEndTime.errors}" />
+            <div *ngIf="form.submitted && activityEndTime.errors">
+              <small class="errorText" *ngIf="activityEndTime.errors?.required">活動結束時間必填</small>
+              <small class="errorText" *ngIf="activityEndTime.errors?.date">活動結束時間格式有誤(yyyy/MM/dd HH:mm:ss)</small>
+            </div>
+          </div>
+
+          <div class="field col-4 col-rwd">
+            <label for="timeDescription">活動時間描述</label>
+            <textarea id="timeDescription" name="timeDescription" [(ngModel)]="vo.timeDescription"
+              #timeDescription="ngModel" [ngClass]="{'error': form.submitted && timeDescription.errors}"
+              maxlength="100"></textarea>
+            <div *ngIf="form.submitted && timeDescription.errors">
+              <small class="errorText" *ngIf="timeDescription.errors">活動時間描述格式有誤</small>
+            </div>
+          </div>
+
+          <div class="field col-4 col-rwd">
+            <label for="venue">活動地點描述</label>
+            <textarea id="venue" name="venue" [(ngModel)]="vo.venue" #venue="ngModel"
+              [ngClass]="{'error': form.submitted && venue.errors}" maxlength="100"></textarea>
+            <div *ngIf="form.submitted && venue.errors">
+              <small class="errorText" *ngIf="venue.errors">活動地點描述格式有誤</small>
+            </div>
+          </div>
+
+          <h5 class="form-required" *ngIf="isAlreadyReply">因已有問券資料，故不可再更改問券問題之部分欄位</h5>
+     <br>
+          <p-table [value]="detailList" styleClass="p-datatable-sm p-datatable-striped">
+            <ng-template pTemplate="header">
+              <tr>
+                <th class="action-2"></th>
+                <th class="action-1">序號</th>
+                <th class="required">問題名稱(中文)</th>
+                <th class="required">問題名稱(英文)</th>
+                <th class="required">是否必填</th>
+                <th class="required">格式限制</th>
+              </tr>
+            </ng-template>
+
+            <ng-template pTemplate="body" let-x let-i="rowIndex">
+              <tr>
+
+                <td>
+                  <button type="button" pButton pRipple icon="pi pi-plus"
+                    class="p-button-rounded p-button-icon-only p-button-text p-button-secondary" (click)="plus();"
+                    [ngClass]="{ 'no-see': i !== detailList.length - 1 }" [disabled]="isAlreadyReply"></button>
+                  <button type="button" pButton pRipple icon="pi pi-minus"
+                    class="p-button-rounded p-button-icon-only p-button-text p-button-secondary"
+                    (click)="minus(i);" [disabled]="isAlreadyReply"></button>
+                </td>
+
+                <td class="field">
+                  <span class="p-column-title">序號</span>
+                  <span>{{ i + 1 }}</span>
+                </td>
+
+                <td class="field">
+                  <span class="p-column-title required">問題名稱(中文)</span>
+                  <input type="text" name="questionChName_{{ x.identity }}" [(ngModel)]="x.questionChName" maxlength="10"
+                    #questionChName="ngModel" required [ngClass]="{'error': form.submitted && questionChName.errors}" [disabled]="isAlreadyReply"/>
+                  <div *ngIf="form.submitted && questionChName.errors">
+                    <small class="errorText" *ngIf="questionChName.errors?.required">問題名稱(中文)必填</small>
+                    <small class="errorText" *ngIf="questionChName.errors">問題名稱(中文)格式有誤</small>
+                  </div>
+                </td>
+
+                <td class="field">
+                  <span class="p-column-title required">問題名稱(英文)</span>
+                  <input type="text" name="questionName_{{ x.identity }}" [(ngModel)]="x.questionName"
+                    #questionName="ngModel" required mask="S{50}" required [disabled]="isAlreadyReply"
+                    [ngClass]="{'error': form.submitted && questionName.errors}" />
+                  <div *ngIf="form.submitted && questionName.errors">
+                    <small class="errorText" *ngIf="questionName.errors?.required">問題名稱(英文)必填</small>
+                    <small class="errorText" *ngIf="questionName.errors">問題名稱(英文)格式有誤</small>
+                  </div>
+                </td>
+
+                <td class="field">
+                  <span class="p-column-title required">是否必填</span>
+                  <select name="isRequired_{{ x.identity }}" [(ngModel)]="x.isRequired" #isRequired="ngModel"
+                    [ngClass]="{'error': form.submitted && isRequired.errors}" required >
+                    <option value="Y">Y</option>
+                    <option value="N">N</option>
+                  </select>
+                  <div *ngIf="form.submitted && isRequired.errors">
+                    <small class="errorText" *ngIf="isRequired.errors?.required">問題名稱(英文)必填</small>
+                  </div>
+                </td>
+
+                <td class="field">
+                  <span class="p-column-title required">格式限制</span>
+                  <input type="text" name="pattern_{{ x.identity }}" [(ngModel)]="x.pattern" #pattern="ngModel"
+                   maxlength="100"  [ngClass]="{'error': form.submitted && pattern.errors}"/>
+                  <div *ngIf="form.submitted && pattern.errors">
+                    <small class="errorText" *ngIf="pattern.errors">格式限制格式有誤</small>
+                  </div>
+                </td>
+
+              </tr>
+            </ng-template>
+
+            <ng-template pTemplate="emptymessage">
+              <tr>
+                <td colspan="3">
+                  <button type="button" pButton pRipple icon="pi pi-plus"
+                    class="p-button-rounded p-button-icon-only p-button-text p-button-secondary"
+                    (click)="plus();"></button>
+                </td>
+              </tr>
+            </ng-template>
+
+          </p-table>
+
+          <div class="field center p-buttonset">
+            <button type="button" pButton pRipple label="返回" icon="pi pi-arrow-left" class="p-button-secondary"
+              (click)="back();"></button>
+            <button type="submit" pButton pRipple label="儲存" icon="pi pi-save" *ngIf="isAdd"
+              (click)="saveAdd();"></button>
+            <button type="submit" pButton pRipple label="儲存" icon="pi pi-save" *ngIf="!isAdd"
+              (click)="saveEdit();"></button>
+            <button type="button" pButton pRipple label="刪除" icon="pi pi-trash" *ngIf="!isAdd" (click)="delete();"
+              class="p-button-danger"></button>
+          </div>
+
+        </form>
+
+      </div>
+    </article>
+  </main>
+</div>

@@ -1,0 +1,19 @@
+<div class="modal-dialog">
+
+  <!-- HEADER -->
+  <div class="modal-header">
+    <h4 class="modal-title">{{ data.title }}</h4>
+  </div>
+
+  <!-- CONTENT -->
+  <mat-dialog-content class="modal-body">
+    <p *ngIf="!data.isChangeLine" >{{data.message}}</p>
+    <p *ngIf="data.isChangeLine" >{{data.message}}</p>
+  </mat-dialog-content>
+
+  <!-- BUTTON -->
+  <mat-dialog-actions class="modal-footer">
+    <button type="button" class="btn btn-danger btn--enable" mat-dialog-close>確認</button>
+  </mat-dialog-actions>
+
+</div>

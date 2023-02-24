@@ -1,0 +1,32 @@
+@import 'src/scss/shared';
+
+.layout-pagination {
+  margin: 1rem 0;
+}
+
+button.pagination {
+  height: 2.357rem;
+  margin: 0.143rem;
+  padding: 0.6rem;
+  line-height: 1;
+  border-radius: 3px;
+  transition: none;
+
+  &:not([disabled]):not(.highlight):hover {
+    background-color: rgba(192, 188, 188, 0.918) !important;
+  }
+
+  &.highlight {
+    background-color:#9C27B0 !important;
+    color: white !important;
+  }
+}
+
+.field {
+  margin-bottom: 0;
+  display: inline-block;
+
+  @include rwd(null, $lg) {
+    display: block;
+  }
+}
