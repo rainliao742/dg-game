@@ -1,7 +1,13 @@
 @import 'src/scss/shared';
-
+// 0224修改
 .layout-pagination {
-  margin: 1rem 0;
+  margin: 1rem;
+  padding: 0 0 2.5rem 0;
+  select{
+    padding: .5rem 1rem;
+    border: 1px solid #7c27b0;
+    border-radius:4px;
+  }
 }
 
 button.pagination {

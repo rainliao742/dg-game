@@ -319,6 +319,11 @@ table {
     border-spacing: 0;
 }
 
+th{
+    border:1px solid #000;
+}   
+
+
 @font-face {
     font-weight: 300;
     font-family: signup Novum;

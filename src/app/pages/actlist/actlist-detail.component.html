@@ -3,13 +3,12 @@
   <main class="signup-wrapper">
     <article class="signup-wrapper">
       <div class="container">
-        <h3>活動維護
+        <h3 class="h3-title">活動維護
           <ng-container *ngIf="isAdd">(新增)</ng-container>
           <ng-container *ngIf="!isAdd">(編輯)</ng-container>
         </h3>
         <form #form="ngForm" class="signup-form">
-
-          <div class="field col-4 col-rwd">
+          <div class="field col-3 col-rwd">
             <label for="activityName" class="required"><span class="form-required">*</span>活動名稱</label>
             <input type="text" id="activityName" name="activityName" [(ngModel)]="vo.activityName"
               #activityName="ngModel" [ngClass]="{'error': form.submitted && activityName.errors}" required
@@ -20,7 +19,7 @@
             </div>
           </div>
 
-          <div class="field col-4 col-rwd">
+          <div class="field col-3 col-rwd">
             <label for="activityType" class="required">活動類型</label>
             <input type="text" id="activityType" name="activityType" [(ngModel)]="vo.activityType"
               #activityType="ngModel" [ngClass]="{'error': form.submitted && activityType.errors}" />
@@ -29,7 +28,7 @@
             </div>
           </div>
 
-          <div class="field col-4 col-rwd">
+          <div class="field col-3 col-rwd">
             <label for="keyQuestion" class="required"><span class="form-required">*</span>報到問題</label>
             <input type="text" id="keyQuestion" name="keyQuestion" [(ngModel)]="vo.keyQuestion" #keyQuestion="ngModel"
               [ngClass]="{'error': form.submitted && keyQuestion.errors}" required maxlength="10"  [disabled]="isAlreadyReply"/>
@@ -95,6 +94,8 @@
 
           <h5 class="form-required" *ngIf="isAlreadyReply">因已有問券資料，故不可再更改問券問題之部分欄位</h5>
      <br>
+
+     <div class="under-wrap">
           <p-table [value]="detailList" styleClass="p-datatable-sm p-datatable-striped">
             <ng-template pTemplate="header">
               <tr>
@@ -191,8 +192,8 @@
             <button type="button" pButton pRipple label="刪除" icon="pi pi-trash" *ngIf="!isAdd" (click)="delete();"
               class="p-button-danger"></button>
           </div>
-
-        </form>
+     </div>
+    </form>
 
       </div>
     </article>

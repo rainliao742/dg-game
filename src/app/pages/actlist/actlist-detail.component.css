@@ -1,0 +1,267 @@
+/* rich */
+
+.signup .signup-wrapper {
+    padding: 0;
+    line-height: 1.6em;
+    max-width: 81.33333rem !important;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+
+    background: radial-gradient(circle, rgba(254, 254, 255, 1) 0%, rgb(217, 217, 217) 100%);
+}
+
+.signup-wrapper article {
+    background: transparent !important;
+}
+
+.signup-wrapper form {
+    background: transparent !important;
+    padding: 0 4rem;
+    display: flex;
+    flex-wrap: wrap;
+    /* border: 1px solid #000; */
+}
+
+.signup-wrapper form .row {
+    background: transparent !important;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    margin-top: 2.5rem;
+    justify-content: start;
+    align-items:flex-start;
+    row-gap:1.5rem;
+    /* border: 1px solid #000; */
+}
+
+.signup-wrapper form .row label {
+    width: 100%;
+    max-width: 45%;
+    min-width: 280px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin:0;
+}
+
+.signup-wrapper form .row label h2 {
+    padding: 0 1rem 0 0;
+    width: 26%;
+    display: inline-block;
+    white-space: nowrap;
+}
+
+
+.signup-wrapper form .row label .field-type {
+    padding: 1rem 1.5rem;
+    width: 74%;
+    border: 1px solid #7c27b0;
+}
+
+
+.field-wrongMessage {
+    width: 100%;
+    font-size: 12px;
+}
+
+/* button style */
+.signup-wrapper .buttonContainer {
+    width: 100%;
+    margin: 0;
+}
+
+.signup-wrapper .btn {
+    cursor: pointer;
+    border-radius: 8px;
+    max-width: 40%;
+    margin: 0 auto;
+    width: 100%;
+    min-width: 280px;
+}
+
+.signup-wrapper .btn--enable {
+    background-color: #7c27b0;
+    transition: all 0.2s;
+    width: 100%;
+}
+
+.signup-wrapper .btn--enable:hover {
+    background-color: #470073;
+}
+
+.signup-wrapper .btn span {
+    display: block;
+    font-size: 20px;
+}
+
+
+.erroMsg {
+    display: block;
+    width: 100%;
+    font-size: 12px;
+    color: #9e2a2b;
+    font-weight: normal;
+    height: 24px;
+}
+
+.signup-wrapper form .row .field{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin:0;
+    row-gap:1rem;
+}
+
+.signup-wrapper form .row .field label.required{
+    font-size: 16px;
+    padding:0 .5rem 0 0;
+    width:auto;
+    min-width:auto;
+    text-align: left;
+    white-space:nowrap;
+}
+
+.signup-wrapper form .row .field input{
+	padding:1rem;
+}
+
+.signup-wrapper form .row .appDateTime-row{
+    display: flex;
+    max-width: 48%;
+    min-width: 280px;
+    flex-wrap:nowrap;
+
+}
+
+.signup-wrapper form .row .appDateTime-row .pi{
+    font-size: 2rem;
+    padding:.5rem;
+}
+
+.signup-wrapper form .row .field .appDatetimePicker{
+    padding: 1rem 1.5rem;
+    width: 82%;
+    border: 1px solid #7c27b0;
+    font-size: 1.33333rem;
+    border-radius: 0.33333rem;
+    line-height: 2rem;    
+}
+
+.signup-wrapper form .field.btn-row{
+    /* border: 1px solid #000; */
+    width: 100%;
+    padding:2rem 0 0 0;
+    margin:0 0 .5rem 0;
+}
+
+.signup-wrapper form .field.btn-row button{
+    margin:.5rem;
+    font-size: 18px;
+}
+.signup-wrapper form .field.btn-row button .p-button-label{
+    font-size: 18px;
+}
+.ng-star-inserted{
+    font-size: 16px;
+    padding:1rem 0;
+}
+
+.signup-wrapper .signup-form div.field{
+	width: auto;
+	display: flex;
+	align-items: center;
+	justify-content:space-between;
+	width: 50%;
+	position: relative;
+}
+
+.signup-wrapper .signup-form div.field input,textarea{
+	padding:1rem;
+	width: 72%;
+	font-size:1.333rem;
+	border: 1px solid #7c27b0;
+	border-radius:4px;
+}
+
+.signup-wrapper .signup-form div.field a{
+	position: absolute;
+	bottom:-2rem;
+	right: 0;	
+}
+
+
+
+.signup-wrapper .signup-form div.field label{
+	width: 28%;
+	font-size: 1.33333rem;
+    	line-height: 2rem;
+	white-space:nowrap;
+	padding:0 .5rem 0 .5rem;
+	text-align: right;
+
+}
+
+.signup-wrapper .signup-form .field input,select{
+	padding:1rem;
+	width: 100%;
+	font-size:1.333rem;
+	border: 1px solid #7c27b0;
+	border-radius:4px;
+}
+
+.pi{
+    font-size: 2rem;
+    padding:.5rem;
+}
+
+.h3-title{
+	font-size: 28px;
+	padding:2.5rem 0;
+	line-height: 1.6rem;
+}
+
+.p-buttonset{
+	margin:0 auto;
+	padding:1rem 0 2.5rem 0;
+	width: auto !important;
+}
+.p-button{
+	padding:1rem 1.5rem;
+}
+
+.under-wrap{
+	display: block;
+	width: 100%;
+}
+tr.ng-star-inserted{
+	/* border: 1px solid #000; */
+}
+
+tr.ng-star-inserted td{
+	/* border: 1px solid #000 !important; */
+	/* display: flex !important; */
+	margin-bottom:0rem !important;
+}	
+@media screen and (max-width: 960px){
+
+	tr.ng-star-inserted td{
+		display: block !important;
+	}
+	
+}
+
+tr.ng-star-inserted td .p-button{
+	padding:1rem 1.5rem;
+}
+
+tr.ng-star-inserted td.field .p-column-title{
+	padding: 0 0 .5rem 0;
+}
+
+tr.ng-star-inserted td.field .p-button.p-button-secondary.p-button-text{
+	padding:1rem
+}
