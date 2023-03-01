@@ -7,7 +7,6 @@
     width: 100%;
     margin: 0 auto;
     text-align: center;
-
     background: radial-gradient(circle, rgba(254, 254, 255, 1) 0%, rgb(217, 217, 217) 100%);
 }
 
@@ -20,8 +19,22 @@
     padding: 0 4rem;
     display: flex;
     flex-wrap: wrap;
-    /* border: 1px solid #000; */
 }
+
+@media screen and (max-width: 960px){
+.signup-wrapper form {
+    background: transparent !important;
+    padding: 0 2rem;
+}
+}
+
+@media screen and (max-width: 480px){
+.signup-wrapper form {
+    background: transparent !important;
+    padding: 0rem;
+}
+}
+
 
 .signup-wrapper form .row {
     background: transparent !important;
@@ -165,19 +178,44 @@
 .signup-wrapper form .field.btn-row button .p-button-label{
     font-size: 18px;
 }
-.ng-star-inserted{
+.date-picker-calendar{
     font-size: 16px;
     padding:1rem 0;
 }
+@media screen and (max-width: 480px){
+    .date-picker-calendar{
+        position: absolute;
+        top:1.2rem;
+        margin-top:0%;
+        right:.2rem;
+    }
+}
+.ng-error-message{
+    position: absolute;
+    right: 0;
+    bottom:-2rem;
+}
 
 .signup-wrapper .signup-form div.field{
-	width: auto;
 	display: flex;
 	align-items: center;
 	justify-content:space-between;
 	width: 50%;
 	position: relative;
 }
+
+@media screen and (max-width: 960px){
+    .signup-wrapper .signup-form div.field{
+        width: 100%;
+    }   
+}
+@media screen and (max-width: 480px){
+    .signup-wrapper .signup-form div.field{
+        flex-wrap:wrap;
+        margin-bottom:2.222rem;
+    }   
+}
+
 
 .signup-wrapper .signup-form div.field input,textarea{
 	padding:1rem;
@@ -186,6 +224,27 @@
 	border: 1px solid #7c27b0;
 	border-radius:4px;
 }
+@media screen and (max-width: 960px){
+    .signup-wrapper .signup-form div.field input,textarea{
+        padding:1rem;
+        width: 100%;
+        font-size:1.333rem;
+        border: 1px solid #7c27b0;
+        border-radius:4px;
+    }
+}
+@media screen and (max-width: 480px){
+    .signup-wrapper .signup-form div.field input,textarea{
+        padding:1rem;
+        width: 100%;
+        font-size:1.2rem;
+        border: 1px solid #7c27b0;
+        border-radius:4px;
+    }
+}
+
+
+
 
 .signup-wrapper .signup-form div.field a{
 	position: absolute;
@@ -198,18 +257,37 @@
 .signup-wrapper .signup-form div.field label{
 	width: 28%;
 	font-size: 1.33333rem;
-    	line-height: 2rem;
+    line-height: 2rem;
 	white-space:nowrap;
 	padding:0 .5rem 0 .5rem;
 	text-align: right;
 
+}
+@media screen and (max-width: 960px){
+    .signup-wrapper .signup-form div.field label{
+        width:18%;
+        font-size: 1.26rem;
+        line-height: 1.8rem;
+        margin:0 0 .5rem 0;
+        white-space:normal;
+    }
+}
+
+@media screen and (max-width: 480px){
+    .signup-wrapper .signup-form div.field label{
+        width: 100%;
+        font-size: 1.2rem;
+        line-height: 1.6rem;
+        white-space:normal;
+        text-align: left;
+    }
 }
 
 .signup-wrapper .signup-form .field input,select{
 	padding:1rem;
 	width: 100%;
 	font-size:1.333rem;
-	border: 1px solid #7c27b0;
+	border: 1px solid #cdcdcd;
 	border-radius:4px;
 }
 
@@ -223,12 +301,33 @@
 	padding:2.5rem 0;
 	line-height: 1.6rem;
 }
+@media screen and (max-width: 480px){
+    .h3-title{
+        font-size: 20px;
+    }
+}
 
-.p-buttonset{
+.signup-wrapper .signup-form div.p-buttonset{
 	margin:0 auto;
 	padding:1rem 0 2.5rem 0;
 	width: auto !important;
+    justify-content: center;
 }
+
+.signup-wrapper .signup-form div.p-buttonset button{
+    padding:1rem 2.5rem;
+    border-radius:4px;
+}
+
+@media screen and (max-width: 480px){
+    .signup-wrapper .signup-form div.p-buttonset button{
+        width: 42%;
+        box-sizing: border-box;
+        margin-bottom: 1rem;
+    }
+}
+
+
 .p-button{
 	padding:1rem 1.5rem;
 }
@@ -237,9 +336,7 @@
 	display: block;
 	width: 100%;
 }
-tr.ng-star-inserted{
-	/* border: 1px solid #000; */
-}
+
 
 tr.ng-star-inserted td{
 	/* border: 1px solid #000 !important; */
@@ -255,13 +352,75 @@ tr.ng-star-inserted td{
 }
 
 tr.ng-star-inserted td .p-button{
-	padding:1rem 1.5rem;
+	padding:1rem;
+    color:#fff;
 }
 
 tr.ng-star-inserted td.field .p-column-title{
 	padding: 0 0 .5rem 0;
+    font-size: 1.333rem;
 }
 
 tr.ng-star-inserted td.field .p-button.p-button-secondary.p-button-text{
 	padding:1rem
+}
+
+
+::ng-deep .p-datatable-wrapper{
+    border-radius: 8px;
+    overflow: hidden;
+}
+::ng-deep #pr_id_4 .p-datatable-tbody tr .serial{
+    width: auto;
+    font-size: 1.333rem;
+}
+
+@media screen and (max-width: 960px){
+    ::ng-deep #pr_id_4 .p-datatable-tbody tr .serial{
+        width: auto;
+        font-size: 1.26rem;
+    }   
+}
+
+@media screen and (max-width: 480px){
+    ::ng-deep #pr_id_4 .p-datatable-tbody tr .serial{
+        width: auto;
+        font-size: 1.2rem;
+    }   
+}
+
+@media screen and (max-width: 960px){
+    ::ng-deep #pr_id_4 .p-datatable-tbody tr td{
+        padding:1rem 2rem;
+    }
+    :host ::ng-deep #pr_id_4 .p-datatable-tbody tr td:last-child{
+        padding:1rem 2rem 2rem 2rem;
+    } 
+
+    ::ng-deep #pr_id_4 .p-datatable-tbody tr td .p-column-title{
+        font-size: 1.2rem;
+    }   
+
+    ::ng-deep #pr_id_4 .p-datatable-tbody tr .serial{
+        border-top: 1px solid #cdcdcd !important;
+        display: flex !important;
+        justify-content: start;
+        width: 100%;
+    }
+
+    ::ng-deep #pr_id_4 .p-datatable-tbody tr .serial span{
+        padding:0.5rem;
+    }
+    ::ng-deep #pr_id_4 .p-datatable-tbody tr .serial span.p-column-title{
+        font-weight: bold;
+    }
+
+}
+
+h5.form-required{
+    margin:1rem 0;
+}
+
+td.calac-wrap{
+    background-color: #470073;
 }

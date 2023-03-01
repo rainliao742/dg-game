@@ -2438,6 +2438,7 @@ p-treeselect.ng-invalid.ng-dirty > .p-treeselect {
 /* 0224 修改 */
 .p-datatable.p-datatable-sm .p-datatable-thead > tr > th {
   padding: 1rem 1rem;
+  font-size: 1.3333rem;
 }
 .p-datatable.p-datatable-sm .p-datatable-tbody > tr > td {
   padding: 1rem 1rem;

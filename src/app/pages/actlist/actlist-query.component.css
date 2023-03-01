@@ -23,12 +23,28 @@
     /* border: 1px solid #000; */
 }
 
+@media screen and (max-width: 960px){
+.signup-wrapper form {
+    background: transparent !important;
+    padding: 0 2rem;
+}
+}
+
+@media screen and (max-width: 480px){
+.signup-wrapper form {
+    background: transparent !important;
+    padding: 0rem;
+}
+}
+
+
+
 .signup-wrapper form .row {
     background: transparent !important;
     display: flex;
     flex-wrap: wrap;
     width: 100%;
-    margin-top: 2.5rem;
+    margin-top: 2rem;
     justify-content: start;
     align-items:flex-start;
     row-gap:1.5rem;
@@ -37,7 +53,7 @@
 
 .signup-wrapper form .row label {
     width: 100%;
-    max-width: 45%;
+    max-width: 48%;
     min-width: 280px;
     display: flex;
     flex-wrap: wrap;
@@ -45,19 +61,63 @@
     align-items: center;
     margin:0;
 }
-
+@media screen and (max-width: 960px){
+    .signup-wrapper form .row label {
+        max-width: 100%;
+    }
+}
 .signup-wrapper form .row label h2 {
     padding: 0 1rem 0 0;
     width: 26%;
     display: inline-block;
     white-space: nowrap;
+    text-align: right;
 }
+
+@media screen and (max-width: 960px){
+    .signup-wrapper form .row label h2{
+        width:15%;
+        font-size: 1.26rem;
+        line-height: 1.8rem;
+        white-space:normal;
+    }
+}
+
+@media screen and (max-width: 480px){
+    .signup-wrapper form .row label h2{
+        width: 100%;
+        font-size: 1.2rem;
+        line-height: 1.6rem;
+        white-space:normal;
+        text-align: left;
+    }
+}
+
 
 
 .signup-wrapper form .row label .field-type {
     padding: 1rem 1.5rem;
     width: 74%;
     border: 1px solid #7c27b0;
+}
+
+@media screen and (max-width: 960px){
+    .signup-wrapper form .row label .field-type{
+        padding:1rem;
+        width: 85%;
+        font-size:1.333rem;
+        border: 1px solid #7c27b0;
+        border-radius:4px;
+    }
+}
+@media screen and (max-width: 480px){
+    .signup-wrapper form .row label .field-type{
+        padding:1rem;
+        width: 100%;
+        font-size:1.2rem;
+        border: 1px solid #7c27b0;
+        border-radius:4px;
+    }
 }
 
 
@@ -74,7 +134,7 @@
 
 .signup-wrapper .btn {
     cursor: pointer;
-    border-radius: 8px;
+    border-radius: 4px;
     max-width: 40%;
     margin: 0 auto;
     width: 100%;
@@ -114,6 +174,21 @@
     align-items: center;
     margin:0;
     row-gap:1rem;
+    position: relative;
+}
+
+
+@media screen and (max-width: 960px){
+    .signup-wrapper form .row div.field{
+        width: 100%;
+    }   
+}
+@media screen and (max-width: 480px){
+    .signup-wrapper form .row div.field{
+        flex-wrap:wrap;
+        margin-bottom:0;
+        justify-content: start;
+    }   
 }
 
 .signup-wrapper form .row .field label.required{
@@ -125,12 +200,47 @@
     white-space:nowrap;
 }
 
+@media screen and (max-width: 960px){
+    .signup-wrapper form .row .field label.required{
+        width:15%;
+        font-size: 1.26rem;
+        line-height: 1.8rem;
+        white-space:normal;
+        justify-content: start;
+    }
+}
+
+@media screen and (max-width: 480px){
+    .signup-wrapper form .row .field label.required{
+        width: 100%;
+        font-size: 1.2rem;
+        line-height: 1.6rem;
+        white-space:normal;
+        text-align: left;
+        justify-content: start;
+    }
+}
+
+
+
+
 .signup-wrapper form .row .appDateTime-row{
     display: flex;
     max-width: 48%;
     min-width: 280px;
-    flex-wrap:nowrap;
+    flex-wrap:nowrap;    
+}
 
+@media screen and (max-width: 960px){
+    .signup-wrapper form .row .appDateTime-row{
+        max-width: 100%;
+    }
+}
+
+@media screen and (max-width: 480px){
+    .signup-wrapper form .row .appDateTime-row{
+        max-width: 100%;
+    }
 }
 
 .signup-wrapper form .row .appDateTime-row .pi{
@@ -146,6 +256,13 @@
     border-radius: 0.33333rem;
     line-height: 2rem;    
 }
+@media screen and (max-width: 480px){
+    .signup-wrapper form .row .field .appDatetimePicker{
+        width: 100%;  
+    }
+}
+
+
 
 .signup-wrapper form .field.btn-row{
     /* border: 1px solid #000; */
@@ -156,13 +273,65 @@
 
 .signup-wrapper form .field.btn-row button{
     margin:.5rem;
+    padding:1rem 2.5rem;    
     font-size: 18px;
 }
 .signup-wrapper form .field.btn-row button .p-button-label{
     font-size: 18px;
 }
+
 .ng-star-inserted{
-    font-size: 16px;
+    font-size: 1.333rem;
     padding:1rem 0;
+}
+
+
+::ng-deep .p-datatable-wrapper .p-datatable-table{
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+    ::ng-deep #pr_id_4 .p-datatable-tbody tr .num{
+        background-color: #7c27b0;
+        border-top: 1px solid #7c27b0;
+        color:#fff;
+    }
+
+@media screen and (max-width: 960px){
+    ::ng-deep #pr_id_4 .p-datatable-tbody tr{
+        border-bottom: 1px;
+    }
+
+    ::ng-deep #pr_id_4 .p-datatable-tbody tr td{
+        padding:1rem 2rem;
+        border-top:1px solid #e0e0e0 !important;
+    }
+
+    ::ng-deep #pr_id_4 .p-datatable-tbody tr .num{
+        background-color: #7c27b0;
+        border-top: 0 none;
+        color:#fff;
+    }
+
+    ::ng-deep .layout-pagination select{
+        margin:1rem 0 0 0;
+    }
+
+}
+
+
+@media screen and (max-width: 480px){
+    .date-picker-calendar{
+        position: absolute;
+        top:2.2rem;
+        margin-top:0%;
+        right:.2rem;
+    }
+}
+
+@media screen and (max-width: 480px){
+    .field-type {
+    margin-top: 0;
+    }
 }
 

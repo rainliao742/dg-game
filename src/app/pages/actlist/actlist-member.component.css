@@ -147,3 +147,83 @@ article {
     display: block;
     font-size: 20px;
 }
+
+.ng-star-inserted{
+    font-size: 1.333rem;
+    padding:1rem 0;
+}
+
+:host ::ng-deep .p-datatable-wrapper table{
+    border-radius: 8px;
+    overflow: hidden;
+}
+:host ::ng-deep .p-datatable-wrapper table tr td{
+    padding:1.5rem !important;
+    /* border: 1px solid #000; */
+}
+:host ::ng-deep .p-datatable-wrapper table tr td input[type=checkbox]{
+            display: inline-block;
+            background-color: #aaa;
+            padding: 3px 6px;
+            border: 1px solid gray;
+            color: #444;
+            user-select: none; /* 防止文字被滑鼠選取反白 */
+}
+
+@media screen and (max-width: 960px){
+    ::ng-deep #pr_id_4 .p-datatable-tbody tr{
+        border-bottom: 1px;
+    }
+
+    ::ng-deep #pr_id_4 .p-datatable-tbody tr td{
+        padding:1rem 2rem;
+        border-top:1px solid #e0e0e0 !important;
+    }
+
+    ::ng-deep #pr_id_4 .p-datatable-tbody tr .center{
+        background-color: #7c27b0;
+        border-top: 0 none;
+        color:#fff;
+    }
+
+    ::ng-deep .layout-pagination select{
+        margin:1rem 0 0 0;
+    }
+
+}
+
+.signup-wrapper .signup-form div.field{
+	display: flex;
+	align-items: center;
+	justify-content:space-between;
+	width: 50%;
+	position: relative;
+}
+
+.signup-wrapper button{
+    margin:.5rem;
+    padding:1rem 2.5rem;    
+    font-size: 18px;
+}
+.signup-wrapper button .p-button-label{
+    font-size: 18px;
+}
+
+.signup-wrapper .field.right{
+    margin-bottom: 0;
+}
+
+.registration {
+    font-size: 1.3333rem;
+    margin-bottom: 2rem;
+}
+.registration label {
+    margin-right:.5rem;
+}
+
+
+.registration select{
+    padding: 0.5rem 1rem;
+    border: 1px solid #7c27b0;
+    border-radius: 4px;
+}

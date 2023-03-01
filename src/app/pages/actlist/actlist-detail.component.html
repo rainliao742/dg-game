@@ -13,7 +13,7 @@
             <input type="text" id="activityName" name="activityName" [(ngModel)]="vo.activityName"
               #activityName="ngModel" [ngClass]="{'error': form.submitted && activityName.errors}" required
               maxlength="50" />
-            <div *ngIf="form.submitted && activityName.errors">
+            <div *ngIf="form.submitted && activityName.errors" class="ng-error-message">
               <small class="errorText" *ngIf="activityName.errors?.required">活動名稱必填</small>
               <small class="errorText" *ngIf="activityName.errors">活動名稱格式有誤</small>
             </div>
@@ -24,7 +24,7 @@
             <input type="text" id="activityType" name="activityType" [(ngModel)]="vo.activityType"
               #activityType="ngModel" [ngClass]="{'error': form.submitted && activityType.errors}" />
             <div *ngIf="form.submitted && activityType.errors">
-              <small class="errorText" *ngIf="activityType.errors">活動類型格式有誤</small>
+              <small class="errorText" *ngIf="activityType.errors" class="ng-error-message">活動類型格式有誤</small>
             </div>
           </div>
 
@@ -32,7 +32,7 @@
             <label for="keyQuestion" class="required"><span class="form-required">*</span>報到問題</label>
             <input type="text" id="keyQuestion" name="keyQuestion" [(ngModel)]="vo.keyQuestion" #keyQuestion="ngModel"
               [ngClass]="{'error': form.submitted && keyQuestion.errors}" required maxlength="10"  [disabled]="isAlreadyReply"/>
-            <div *ngIf="form.submitted && keyQuestion.errors">
+            <div *ngIf="form.submitted && keyQuestion.errors" class="ng-error-message">
               <small class="errorText" *ngIf="keyQuestion.errors?.required">報到問題必填</small>
               <small class="errorText" *ngIf="keyQuestion.errors">報到問題格式有誤</small>
             </div>
@@ -54,7 +54,7 @@
             <input type="text" id="activityStartTime" name="activityStartTime" appDatetimePicker [(ngModel)]="startTime"
               #activityStartTime="ngModel" mode="datetime_second" required
               [ngClass]="{'error': form.submitted && activityStartTime.errors}" />
-            <div *ngIf="form.submitted && activityStartTime.errors">
+            <div *ngIf="form.submitted && activityStartTime.errors" class="ng-error-message">
               <small class="errorText" *ngIf="activityStartTime.errors?.required">活動起始時間必填</small>
               <small class="errorText" *ngIf="activityStartTime.errors?.date">活動起始時間格式有誤(yyyy/MM/dd HH:mm:ss)</small>
             </div>
@@ -67,7 +67,7 @@
             <input type="text" id="activityEndTime" name="activityEndTime" appDatetimePicker [(ngModel)]="endTime"
               #activityEndTime="ngModel" mode="datetime_second" required
               [ngClass]="{'error': form.submitted && activityEndTime.errors}" />
-            <div *ngIf="form.submitted && activityEndTime.errors">
+            <div *ngIf="form.submitted && activityEndTime.errors" class="ng-error-message">
               <small class="errorText" *ngIf="activityEndTime.errors?.required">活動結束時間必填</small>
               <small class="errorText" *ngIf="activityEndTime.errors?.date">活動結束時間格式有誤(yyyy/MM/dd HH:mm:ss)</small>
             </div>
@@ -111,7 +111,7 @@
             <ng-template pTemplate="body" let-x let-i="rowIndex">
               <tr>
 
-                <td>
+                <td class="calac-wrap">
                   <button type="button" pButton pRipple icon="pi pi-plus"
                     class="p-button-rounded p-button-icon-only p-button-text p-button-secondary" (click)="plus();"
                     [ngClass]="{ 'no-see': i !== detailList.length - 1 }" [disabled]="isAlreadyReply"></button>
@@ -120,7 +120,7 @@
                     (click)="minus(i);" [disabled]="isAlreadyReply"></button>
                 </td>
 
-                <td class="field">
+                <td class="field serial">
                   <span class="p-column-title">序號</span>
                   <span>{{ i + 1 }}</span>
                 </td>

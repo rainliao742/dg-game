@@ -5,7 +5,7 @@
       <div class="container">
 
 
-<div class="field col-4 col-rwd">
+<div class="field col-4 col-rw registration">
   <label for="isEntered" class="required">是否報到</label>
   <select id="isEntered" name="isEntered" [(ngModel)]="qvo.isEntered" 
   #isEntered="ngModel" (change)="execQuery()">
@@ -24,7 +24,7 @@
         </button>
       </div>
 
-        <div>共 {{totalRecordCnt}} 筆</div>
+        <div class="ng-star-inserted">共 {{totalRecordCnt}} 筆</div>
         <br>
       <p-table [columns]="columnList" [value]="queryList" [lazy]="true" (onSort)="sort($event)" [customSort]="true"
         [loading]="isQuerying" [rowHover]="true" styleClass="p-datatable-sm p-datatable-striped"
