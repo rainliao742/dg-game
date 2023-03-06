@@ -42,8 +42,8 @@
     flex-wrap: wrap;
     width: 100%;
     margin-top: 2.5rem;
-    justify-content: start;
-    align-items:flex-start;
+    justify-content:flex;
+    align-items:start;
     row-gap:1.5rem;
     /* border: 1px solid #000; */
 }
@@ -404,7 +404,7 @@ tr.ng-star-inserted td.field .p-button.p-button-secondary.p-button-text{
     ::ng-deep #pr_id_4 .p-datatable-tbody tr .serial{
         border-top: 1px solid #cdcdcd !important;
         display: flex !important;
-        justify-content: start;
+        justify-content:flex-start;
         width: 100%;
     }
 
